@@ -130,8 +130,8 @@ ssl=yes					# use ssl-support.  Works with
 ## OrgDNS.org account-configuration
 ##
 # use=web, web=members.orgdns.org/nic/ip
+# protocol=dyndns2
 # server=www.orgdns.org 		\
-# protocol=dyndns2 			\
 # login=yourLoginName 			\
 # password=yourPassword 		\
 # yourSubdomain.orgdns.org
@@ -139,11 +139,11 @@ ssl=yes					# use ssl-support.  Works with
 ##
 ## NameCheap (namecheap.com)
 ##
-# protocol=namecheap,				\
+# protocol=namecheap,                     \
 # server=dynamicdns.park-your-domain.com,	\
-# login=my-namecheap.com-login,			\
-# password=my-namecheap.com-password		\
-# fully.qualified.host
+# login=example.com,                      \
+# password=example.com-password           \
+# subdomain.example.com
 
 ##
 ## NearlyFreeSpeech.NET (nearlyfreespeech.net)
@@ -158,8 +158,7 @@ ssl=yes					# use ssl-support.  Works with
 ##
 ## Loopia (loopia.se)
 ##
-# use=web
-# web=loopia
+# use=web, web=loopia
 # protocol=dyndns2
 # server=dns.loopia.se
 # script=/XDynDNSServer/XDynDNS.php
@@ -192,7 +191,7 @@ ssl=yes					# use ssl-support.  Works with
 #protocol=cloudflare,        \
 #zone=domain.tld,            \
 #ttl=1,                      \
-#login=your-login-email,     \ # Only needed if you are using your global API key.
+#login=your-login-email,     \ # Only needed if you are using your global API key. If you are using an API token, set it to "token" (wihtout double quotes).
 #password=APIKey             \ # This is either your global API key, or an API token. If you are using an API token, it must have the permissions "Zone - DNS - Edit" and "Zone - Zone - Read". The Zone resources must be "Include - All zones".
 #domain.tld,my.domain.tld
 
@@ -218,8 +217,9 @@ ssl=yes					# use ssl-support.  Works with
 ## Duckdns (http://www.duckdns.org/)
 ##
 #
-# password=my-auto-generated-password
-# protocol=duckdns hostwithoutduckdnsorg
+# protocol=duckdns, \
+# password=my-auto-generated-password \
+# hostwithoutduckdnsorg
 
 ##
 ## Freemyip (http://freemyip.com/)
@@ -232,12 +232,12 @@ ssl=yes					# use ssl-support.  Works with
 ##
 ## MyOnlinePortal (http://myonlineportal.net)
 ##
-# protocol=dyndns2
-# ssl=yes
 # # ipv6=yes # optional
 # use=web, web=myonlineportal.net/checkip
 # # use=if, if=eth0     # alternative to use=web
 # # if-skip=Scope:Link  # alternative to use=web
+# protocol=dyndns2
+# ssl=yes
 # login=your-myonlineportal-username
 # password=your-myonlineportal-password
 # domain.myonlineportal.net
@@ -245,8 +245,8 @@ ssl=yes					# use ssl-support.  Works with
 ##
 ## nsupdate.info IPV4(https://www.nsupdate.info)
 ##
-#protocol=dyndns2
 #use=web, web=http://ipv4.nsupdate.info/myip
+#protocol=dyndns2
 #server=ipv4.nsupdate.info
 #login=domain.nsupdate.info
 #password='123'
@@ -256,8 +256,8 @@ ssl=yes					# use ssl-support.  Works with
 ## nsupdate.info IPV6 (https://www.nsupdate.info)
 ## ddclient releases <= 3.8.1 do not support IPv6
 ##
-#protocol=dyndns2
 #usev6=if, if=eth0
+#protocol=dyndns2
 #server=ipv6.nsupdate.info
 #login=domain.nsupdate.info
 #password='123'
@@ -301,3 +301,10 @@ ssl=yes					# use ssl-support.  Works with
 # login=myusername,     \
 # password=mypassword   \
 # myhost.mydomain.com
+
+## dnsexit (www.dnsexit.com)
+##
+#protocol=dnsexit,                                            \
+#login=myusername,                                            \
+#password=mypassword,                                         \
+#subdomain-1.domain.com,subdomain-2.domain.com

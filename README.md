@@ -1,10 +1,9 @@
-===============================================================================
-# DDCLIENT v3.9.1
+# DDCLIENT v3.10.0
 
-ddclient is a Perl client used to update dynamic DNS entries for accounts
+`ddclient` is a Perl client used to update dynamic DNS entries for accounts 
 on many dynamic DNS services.
 
-===============================================================================
+## Supported services
 
 Dynamic DNS services currently supported include:
 
@@ -20,6 +19,7 @@ Dynamic DNS services currently supported include:
     ChangeIP    - See http://www.changeip.com/ for details
     nsupdate    - See nsupdate(1) and ddns-confgen(8) for details
     CloudFlare  - See https://www.cloudflare.com/ for details
+    GoDaddy     - See https://www.godaddy.com/ for details
     Google      - See http://www.google.com/domains for details
     Duckdns     - See https://duckdns.org/ for details
     Freemyip    - See https://freemyip.com for details
@@ -32,15 +32,15 @@ Dynamic DNS services currently supported include:
     ClouDNS     - See https://www.cloudns.net
     dinahosting - See https://dinahosting.com
     Gandi       - See https://gandi.net
+    dnsexit     - See https://dnsexit.com/ for details
+    1984.is     - See https://www.1984.is/product/freedns/ for details
 
-DDclient now supports many of cable/dsl broadband routers.
+`ddclient` now supports many cable and DSL broadband routers.
 
 Comments, suggestions and requests: use the issues on https://github.com/ddclient/ddclient/issues/new
 
-The code was originally written by Paul Burry and is now hosted and maintained
+The code was originally written by Paul Burry and is now hosted and maintained 
 through github.com. Please check out http://ddclient.net
-
--------------------------------------------------------------------------------
 
 ## REQUIREMENTS
 
@@ -48,7 +48,7 @@ through github.com. Please check out http://ddclient.net
   * Perl v5.10.1 or later
       * `IO::Socket::SSL` perl library for ssl-support
       * `JSON::PP` perl library for JSON support
-      * `IO::Socket:INET6` perl library for ipv6-support
+      * `IO::Socket::INET6` perl library for ipv6-support
   * Linux, macOS, or any other Unix-ish system
   * An implementation of `make` (such as [GNU
     Make](https://www.gnu.org/software/make/))
@@ -77,8 +77,8 @@ ddclient package.
      the directory:
 
      ```shell
-     tar xvfa ddclient-3.9.1.tar.gz
-     cd ddclient-3.9.1
+     tar xvfa ddclient-3.10.0.tar.gz
+     cd ddclient-3.10.0
      ```
 
      (If you are installing from a clone of the Git repository, you
@@ -154,7 +154,7 @@ if you plan to use cloudflare or feedns you need the perl json module
 
     apt-get install libjson-pp-perl
 
-for IPv6 you also need to instal the perl io-socker-inet6 module
+for IPv6 you also need to instal the perl io-socket-inet6 module
 
     apt install libio-socket-inet6-perl
 
@@ -185,8 +185,6 @@ start the service manually for the first time
 
 
 If you are not using daemon-mode, configure cron and dhcp or ppp as described below.
-
--------------------------------------------------------------------------------
 
 ## TROUBLESHOOTING
 
@@ -226,9 +224,7 @@ to the beginning of your ddclient.conf file.
 Note that some routers use either 'root' or 'admin' as their login
 while some others accept anything.
 
--------------------------------------------------------------------------------
-
-## USING DDCLIENT WITH ppp
+## USING DDCLIENT WITH `ppp`
 
 If you are using a ppp connection, you can easily update your DynDNS
 entry with each connection, with:
@@ -239,9 +235,7 @@ entry with each connection, with:
 Alternatively, you may just configure ddclient to operate as a daemon
 and monitor your ppp interface.
 
--------------------------------------------------------------------------------
-
-## USING DDCLIENT WITH cron
+## USING DDCLIENT WITH `cron`
 
 If you have not configured ddclient to use daemon-mode, you'll need to
 configure cron to force an update once a month so that the dns entry will
@@ -251,9 +245,7 @@ not become stale.
     cp sample-etc_cron.d_ddclient /etc/cron.d/ddclient
     vi /etc/cron.d/ddclient
 
--------------------------------------------------------------------------------
-
-## USING DDCLIENT WITH dhcpcd-1.3.17
+## USING DDCLIENT WITH `dhcpcd-1.3.17`
 
 If you are using dhcpcd-1.3.17 or thereabouts, you can easily update
 your DynDNS entry automatically every time your lease is obtained
@@ -278,8 +270,7 @@ for updating DNS entries.
 Alternatively, you may just configure ddclient to operate as a daemon
 and monitor your ethernet interface.
 
--------------------------------------------------------------------------------
-## USING DDCLIENT WITH dhclient
+## USING DDCLIENT WITH `dhclient`
 
 If you are using the ISC DHCP client (dhclient), you can update
 your DynDNS entry automatically every time your lease is obtained
@@ -292,5 +283,3 @@ Edit ``/etc/dhclient-exit-hooks`` to change any options required.
 
 Alternatively, you may just configure ddclient to operate as a daemon
 and monitor your ethernet interface.
-
--------------------------------------------------------------------------------
