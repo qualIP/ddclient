@@ -1,3 +1,10 @@
+ddclient (3.10.0-jst4) UNRELEASED; urgency=medium
+
+  [ JST ]
+  * merge with upstream develop branch (5382a98)
+
+ -- Jean-Sebastien Trottier <jst@qualipsoft.com>  Thu, 21 Jul 2022 18:06:43 -0400
+
 ddclient (3.10.0-jst3) UNRELEASED; urgency=medium
 
   [ JST ]
